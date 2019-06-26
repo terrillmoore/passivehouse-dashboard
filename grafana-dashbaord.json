@@ -538,7 +538,7 @@
 			"bars": false,
 			"dashLength": 10,
 			"dashes": false,
-			"fill": 1,
+			"fill": 0,
 			"gridPos": {
 				"h": 8,
 				"w": 12,
@@ -627,7 +627,20 @@
 			],
 			"thresholds": [],
 			"timeFrom": null,
-			"timeRegions": [],
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
 			"timeShift": null,
 			"title": "Outdoor Dewpoint",
 			"tooltip": {
@@ -990,7 +1003,7 @@
 			}
 		},
 		{
-			"collapsed": false,
+			"collapsed": true,
 			"gridPos": {
 				"h": 1,
 				"w": 24,
@@ -998,297 +1011,298 @@
 				"y": 27
 			},
 			"id": 16,
-			"panels": [],
+			"panels": [
+				{
+					"aliasColors": {},
+					"bars": false,
+					"dashLength": 10,
+					"dashes": false,
+					"fill": 0,
+					"gridPos": {
+						"h": 9,
+						"w": 12,
+						"x": 0,
+						"y": 28
+					},
+					"id": 26,
+					"legend": {
+						"avg": false,
+						"current": false,
+						"max": false,
+						"min": false,
+						"show": true,
+						"total": false,
+						"values": false
+					},
+					"lines": true,
+					"linewidth": 1,
+					"links": [],
+					"nullPointMode": "null",
+					"options": {},
+					"percentage": false,
+					"pointradius": 2,
+					"points": false,
+					"renderer": "flot",
+					"seriesOverrides": [],
+					"spaceLength": 10,
+					"stack": false,
+					"steppedLine": false,
+					"targets": [
+						{
+							"alias": "$tag_displayName",
+							"groupBy": [
+								{
+									"params": [
+										"$__interval"
+									],
+									"type": "time"
+								},
+								{
+									"params": [
+										"displayName"
+									],
+									"type": "tag"
+								},
+								{
+									"params": [
+										"none"
+									],
+									"type": "fill"
+								}
+							],
+							"measurement": "EnvironmentalData",
+							"orderByTime": "ASC",
+							"policy": "default",
+							"refId": "A",
+							"resultFormat": "time_series",
+							"select": [
+								[
+									{
+										"params": [
+											"irradiance.IR"
+										],
+										"type": "field"
+									},
+									{
+										"params": [],
+										"type": "mean"
+									}
+								]
+							],
+							"tags": [
+								{
+									"key": "devID",
+									"operator": "=~",
+									"value": "/indoor/"
+								},
+								{
+									"condition": "AND",
+									"key": "displayName",
+									"operator": "=~",
+									"value": "/^$Sensors$/"
+								}
+							]
+						}
+					],
+					"thresholds": [],
+					"timeFrom": null,
+					"timeRegions": [
+						{
+							"colorMode": "gray",
+							"fill": true,
+							"fillColor": "rgba(234, 112, 112, 0.12)",
+							"from": "05:00",
+							"fromDayOfWeek": 6,
+							"line": false,
+							"lineColor": "rgba(237, 46, 24, 0.60)",
+							"op": "time",
+							"to": "05:00",
+							"toDayOfWeek": 1
+						}
+					],
+					"timeShift": null,
+					"title": "Indoor light",
+					"tooltip": {
+						"shared": true,
+						"sort": 0,
+						"value_type": "individual"
+					},
+					"transparent": true,
+					"type": "graph",
+					"xaxis": {
+						"buckets": null,
+						"mode": "time",
+						"name": null,
+						"show": true,
+						"values": []
+					},
+					"yaxes": [
+						{
+							"format": "Wm2",
+							"label": null,
+							"logBase": 10,
+							"max": null,
+							"min": "1",
+							"show": true
+						},
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						}
+					],
+					"yaxis": {
+						"align": false,
+						"alignLevel": null
+					}
+				},
+				{
+					"aliasColors": {},
+					"bars": false,
+					"dashLength": 10,
+					"dashes": false,
+					"fill": 0,
+					"gridPos": {
+						"h": 9,
+						"w": 12,
+						"x": 12,
+						"y": 28
+					},
+					"id": 27,
+					"legend": {
+						"avg": false,
+						"current": false,
+						"max": false,
+						"min": false,
+						"show": true,
+						"total": false,
+						"values": false
+					},
+					"lines": true,
+					"linewidth": 1,
+					"links": [],
+					"nullPointMode": "null",
+					"options": {},
+					"percentage": false,
+					"pointradius": 2,
+					"points": false,
+					"renderer": "flot",
+					"seriesOverrides": [],
+					"spaceLength": 10,
+					"stack": false,
+					"steppedLine": false,
+					"targets": [
+						{
+							"alias": "$tag_displayName",
+							"groupBy": [
+								{
+									"params": [
+										"$__interval"
+									],
+									"type": "time"
+								},
+								{
+									"params": [
+										"displayName"
+									],
+									"type": "tag"
+								},
+								{
+									"params": [
+										"none"
+									],
+									"type": "fill"
+								}
+							],
+							"measurement": "EnvironmentalData",
+							"orderByTime": "ASC",
+							"policy": "default",
+							"refId": "A",
+							"resultFormat": "time_series",
+							"select": [
+								[
+									{
+										"params": [
+											"irradiance.IR"
+										],
+										"type": "field"
+									},
+									{
+										"params": [],
+										"type": "mean"
+									}
+								]
+							],
+							"tags": [
+								{
+									"key": "devID",
+									"operator": "=~",
+									"value": "/outdoor/"
+								}
+							]
+						}
+					],
+					"thresholds": [],
+					"timeFrom": null,
+					"timeRegions": [
+						{
+							"colorMode": "gray",
+							"fill": true,
+							"fillColor": "rgba(234, 112, 112, 0.12)",
+							"from": "05:00",
+							"fromDayOfWeek": 6,
+							"line": false,
+							"lineColor": "rgba(237, 46, 24, 0.60)",
+							"op": "time",
+							"to": "05:00",
+							"toDayOfWeek": 1
+						}
+					],
+					"timeShift": null,
+					"title": "Outdoor light",
+					"tooltip": {
+						"shared": true,
+						"sort": 0,
+						"value_type": "individual"
+					},
+					"transparent": true,
+					"type": "graph",
+					"xaxis": {
+						"buckets": null,
+						"mode": "time",
+						"name": null,
+						"show": true,
+						"values": []
+					},
+					"yaxes": [
+						{
+							"format": "Wm2",
+							"label": null,
+							"logBase": 10,
+							"max": null,
+							"min": "1",
+							"show": true
+						},
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						}
+					],
+					"yaxis": {
+						"align": false,
+						"alignLevel": null
+					}
+				}
+			],
 			"title": "Light",
 			"type": "row"
-		},
-		{
-			"aliasColors": {},
-			"bars": false,
-			"dashLength": 10,
-			"dashes": false,
-			"fill": 0,
-			"gridPos": {
-				"h": 9,
-				"w": 12,
-				"x": 0,
-				"y": 28
-			},
-			"id": 26,
-			"legend": {
-				"avg": false,
-				"current": false,
-				"max": false,
-				"min": false,
-				"show": true,
-				"total": false,
-				"values": false
-			},
-			"lines": true,
-			"linewidth": 1,
-			"links": [],
-			"nullPointMode": "null",
-			"options": {},
-			"percentage": false,
-			"pointradius": 2,
-			"points": false,
-			"renderer": "flot",
-			"seriesOverrides": [],
-			"spaceLength": 10,
-			"stack": false,
-			"steppedLine": false,
-			"targets": [
-				{
-					"alias": "$tag_displayName",
-					"groupBy": [
-						{
-							"params": [
-								"$__interval"
-							],
-							"type": "time"
-						},
-						{
-							"params": [
-								"displayName"
-							],
-							"type": "tag"
-						},
-						{
-							"params": [
-								"none"
-							],
-							"type": "fill"
-						}
-					],
-					"measurement": "EnvironmentalData",
-					"orderByTime": "ASC",
-					"policy": "default",
-					"refId": "A",
-					"resultFormat": "time_series",
-					"select": [
-						[
-							{
-								"params": [
-									"irradiance.IR"
-								],
-								"type": "field"
-							},
-							{
-								"params": [],
-								"type": "mean"
-							}
-						]
-					],
-					"tags": [
-						{
-							"key": "devID",
-							"operator": "=~",
-							"value": "/indoor/"
-						},
-						{
-							"condition": "AND",
-							"key": "displayName",
-							"operator": "=~",
-							"value": "/^$Sensors$/"
-						}
-					]
-				}
-			],
-			"thresholds": [],
-			"timeFrom": null,
-			"timeRegions": [
-				{
-					"colorMode": "gray",
-					"fill": true,
-					"fillColor": "rgba(234, 112, 112, 0.12)",
-					"from": "05:00",
-					"fromDayOfWeek": 6,
-					"line": false,
-					"lineColor": "rgba(237, 46, 24, 0.60)",
-					"op": "time",
-					"to": "05:00",
-					"toDayOfWeek": 1
-				}
-			],
-			"timeShift": null,
-			"title": "Indoor light",
-			"tooltip": {
-				"shared": true,
-				"sort": 0,
-				"value_type": "individual"
-			},
-			"transparent": true,
-			"type": "graph",
-			"xaxis": {
-				"buckets": null,
-				"mode": "time",
-				"name": null,
-				"show": true,
-				"values": []
-			},
-			"yaxes": [
-				{
-					"format": "Wm2",
-					"label": null,
-					"logBase": 10,
-					"max": null,
-					"min": "1",
-					"show": true
-				},
-				{
-					"format": "short",
-					"label": null,
-					"logBase": 1,
-					"max": null,
-					"min": null,
-					"show": true
-				}
-			],
-			"yaxis": {
-				"align": false,
-				"alignLevel": null
-			}
-		},
-		{
-			"aliasColors": {},
-			"bars": false,
-			"dashLength": 10,
-			"dashes": false,
-			"fill": 0,
-			"gridPos": {
-				"h": 9,
-				"w": 12,
-				"x": 12,
-				"y": 28
-			},
-			"id": 27,
-			"legend": {
-				"avg": false,
-				"current": false,
-				"max": false,
-				"min": false,
-				"show": true,
-				"total": false,
-				"values": false
-			},
-			"lines": true,
-			"linewidth": 1,
-			"links": [],
-			"nullPointMode": "null",
-			"options": {},
-			"percentage": false,
-			"pointradius": 2,
-			"points": false,
-			"renderer": "flot",
-			"seriesOverrides": [],
-			"spaceLength": 10,
-			"stack": false,
-			"steppedLine": false,
-			"targets": [
-				{
-					"alias": "$tag_displayName",
-					"groupBy": [
-						{
-							"params": [
-								"$__interval"
-							],
-							"type": "time"
-						},
-						{
-							"params": [
-								"displayName"
-							],
-							"type": "tag"
-						},
-						{
-							"params": [
-								"none"
-							],
-							"type": "fill"
-						}
-					],
-					"measurement": "EnvironmentalData",
-					"orderByTime": "ASC",
-					"policy": "default",
-					"refId": "A",
-					"resultFormat": "time_series",
-					"select": [
-						[
-							{
-								"params": [
-									"irradiance.IR"
-								],
-								"type": "field"
-							},
-							{
-								"params": [],
-								"type": "mean"
-							}
-						]
-					],
-					"tags": [
-						{
-							"key": "devID",
-							"operator": "=~",
-							"value": "/outdoor/"
-						}
-					]
-				}
-			],
-			"thresholds": [],
-			"timeFrom": null,
-			"timeRegions": [
-				{
-					"colorMode": "gray",
-					"fill": true,
-					"fillColor": "rgba(234, 112, 112, 0.12)",
-					"from": "05:00",
-					"fromDayOfWeek": 6,
-					"line": false,
-					"lineColor": "rgba(237, 46, 24, 0.60)",
-					"op": "time",
-					"to": "05:00",
-					"toDayOfWeek": 1
-				}
-			],
-			"timeShift": null,
-			"title": "Outdoor light",
-			"tooltip": {
-				"shared": true,
-				"sort": 0,
-				"value_type": "individual"
-			},
-			"transparent": true,
-			"type": "graph",
-			"xaxis": {
-				"buckets": null,
-				"mode": "time",
-				"name": null,
-				"show": true,
-				"values": []
-			},
-			"yaxes": [
-				{
-					"format": "Wm2",
-					"label": null,
-					"logBase": 10,
-					"max": null,
-					"min": "1",
-					"show": true
-				},
-				{
-					"format": "short",
-					"label": null,
-					"logBase": 1,
-					"max": null,
-					"min": null,
-					"show": true
-				}
-			],
-			"yaxis": {
-				"align": false,
-				"alignLevel": null
-			}
 		},
 		{
 			"collapsed": false,
@@ -1296,7 +1310,7 @@
 				"h": 1,
 				"w": 24,
 				"x": 0,
-				"y": 37
+				"y": 28
 			},
 			"id": 2,
 			"panels": [],
@@ -1314,7 +1328,7 @@
 				"h": 8,
 				"w": 12,
 				"x": 0,
-				"y": 38
+				"y": 29
 			},
 			"id": 12,
 			"legend": {
@@ -1510,7 +1524,7 @@
 				"h": 8,
 				"w": 12,
 				"x": 12,
-				"y": 38
+				"y": 29
 			},
 			"id": 14,
 			"legend": {
@@ -1647,7 +1661,7 @@
 				"h": 1,
 				"w": 24,
 				"x": 0,
-				"y": 46
+				"y": 37
 			},
 			"id": 10,
 			"panels": [],
@@ -1666,7 +1680,7 @@
 				"h": 8,
 				"w": 12,
 				"x": 0,
-				"y": 47
+				"y": 38
 			},
 			"id": 6,
 			"legend": {
@@ -1863,7 +1877,7 @@
 				"h": 8,
 				"w": 12,
 				"x": 12,
-				"y": 47
+				"y": 38
 			},
 			"id": 8,
 			"legend": {
@@ -2049,7 +2063,7 @@
 				"h": 1,
 				"w": 24,
 				"x": 0,
-				"y": 55
+				"y": 46
 			},
 			"id": 37,
 			"panels": [
@@ -3183,7 +3197,7 @@
 		]
 	},
 	"time": {
-		"from": "now-30d",
+		"from": "now-7d",
 		"to": "now"
 	},
 	"timepicker": {
@@ -3214,5 +3228,5 @@
 	"timezone": "",
 	"title": "Ecovillage Passive Houses",
 	"uid": "yjJVfukZk",
-	"version": 7
+	"version": 8
 }
