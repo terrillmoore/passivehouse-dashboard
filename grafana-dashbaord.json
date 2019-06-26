@@ -1,2997 +1,3218 @@
 {
-  "annotations": {
-    "list": [
-      {
-        "builtIn": 1,
-        "datasource": "-- Grafana --",
-        "enable": true,
-        "hide": true,
-        "iconColor": "rgba(0, 211, 255, 1)",
-        "name": "Annotations & Alerts",
-        "type": "dashboard"
-      }
-    ]
-  },
-  "editable": true,
-  "gnetId": null,
-  "graphTooltip": 0,
-  "id": 1,
-  "iteration": 1561330138532,
-  "links": [],
-  "panels": [
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 31,
-      "panels": [],
-      "title": "Temperatures",
-      "type": "row"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "fill": 1,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 1
-      },
-      "id": 18,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "$tag_displayName",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "displayName"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "EnvironmentalData",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "t"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "* 1.8 + 32"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "displayKey",
-              "operator": "=~",
-              "value": "/indoor/"
-            },
-            {
-              "condition": "AND",
-              "key": "displayName",
-              "operator": "=~",
-              "value": "/^$Sensors$/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Indoor temperatures",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "farenheit",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "fill": 1,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 1
-      },
-      "id": 20,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "$tag_displayName",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "displayName"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "EnvironmentalData",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "t"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "* 1.8 + 32"
-                ],
-                "type": "math"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "devID",
-              "operator": "=~",
-              "value": "/outdoor/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Outdoor Temperatures",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "farenheit",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 9
-      },
-      "id": 29,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 10
-          },
-          "id": 34,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_displayName",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "EnvironmentalData",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "tDew"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  },
-                  {
-                    "params": [
-                      "* 1.8 + 32"
-                    ],
-                    "type": "math"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "displayKey",
-                  "operator": "=~",
-                  "value": "/indoor/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "displayName",
-                  "operator": "=~",
-                  "value": "/^$Sensors$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Indoor dewpoint",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "farenheit",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 10
-          },
-          "id": 35,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_displayName",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "EnvironmentalData",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "tDew"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  },
-                  {
-                    "params": [
-                      "* 1.8 + 32"
-                    ],
-                    "type": "math"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "devID",
-                  "operator": "=~",
-                  "value": "/outdoor/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Outdoor Dewpoint",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "farenheit",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
-      "title": "Dewpoint",
-      "type": "row"
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 10
-      },
-      "id": 33,
-      "panels": [],
-      "title": "Humidity",
-      "type": "row"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "fill": 1,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 11
-      },
-      "id": 22,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "$tag_displayName",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "displayName"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "EnvironmentalData",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "rh"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "devID",
-              "operator": "=~",
-              "value": "/indoor/"
-            },
-            {
-              "condition": "AND",
-              "key": "displayName",
-              "operator": "=~",
-              "value": "/^$Sensors$/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Indoor Humidity",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "humidity",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "fill": 1,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 11
-      },
-      "id": 24,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "$tag_displayName",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "displayName"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "EnvironmentalData",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "rh"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "devID",
-              "operator": "=~",
-              "value": "/outdoor/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Outdoor Humidity",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "humidity",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 19
-      },
-      "id": 16,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 0,
-            "y": 20
-          },
-          "id": 26,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_displayName (W)",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "EnvironmentalData",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "irradiance.White"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "devID",
-                  "operator": "=~",
-                  "value": "/indoor/"
-                },
-                {
-                  "condition": "AND",
-                  "key": "displayName",
-                  "operator": "=~",
-                  "value": "/^$Sensors$/"
-                }
-              ]
-            },
-            {
-              "alias": "$tag_displayName (IR)",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "EnvironmentalData",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "B",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "irradiance.IR"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "devID",
-                  "operator": "=~",
-                  "value": "/indoor/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Indoor light",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "Wm2",
-              "label": null,
-              "logBase": 10,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 20
-          },
-          "id": 27,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_displayName (W)",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "EnvironmentalData",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "irradiance.White"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "devID",
-                  "operator": "=~",
-                  "value": "/outdoor/"
-                }
-              ]
-            },
-            {
-              "alias": "$tag_displayName (IR)",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "EnvironmentalData",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "B",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "irradiance.IR"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "devID",
-                  "operator": "=~",
-                  "value": "/outdoor/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Outdoor light",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "Wm2",
-              "label": null,
-              "logBase": 10,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
-      "title": "Light",
-      "type": "row"
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 20
-      },
-      "id": 2,
-      "panels": [],
-      "title": "Raw Demand (all meters)",
-      "type": "row"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "description": "",
-      "fill": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 21
-      },
-      "id": 12,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "$tag_displayName",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "displayName"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "Electricity",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "mainDemand"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "displayName",
-              "operator": "=~",
-              "value": "/Grid/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Grid Consumption (production)",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "watt",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "fill": 1,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 21
-      },
-      "id": 14,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "$tag_displayName",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "displayName"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "Electricity",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "mainDemand"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "displayName",
-              "operator": "=~",
-              "value": "/Solar/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Solar Production",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "watt",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 29
-      },
-      "id": 10,
-      "panels": [],
-      "title": "Raw Energy Totals",
-      "type": "row"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "InfluxDB",
-      "description": "",
-      "fill": 1,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 30
-      },
-      "id": 6,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "$tag_displayName -",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "devID"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "displayName"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "Electricity",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "energyUsed"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "displayName",
-              "operator": "=~",
-              "value": "/Grid/"
-            }
-          ]
-        },
-        {
-          "alias": "$tag_displayName +",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "displayName"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "Electricity",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "energySourced"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "displayName",
-              "operator": "=~",
-              "value": "/Grid/"
-            }
-          ]
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Energy Used",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "watth",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "InfluxDB",
-      "fill": 1,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 30
-      },
-      "id": 8,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "alias": "$tag_devID",
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "devID"
-              ],
-              "type": "tag"
-            },
-            {
-              "params": [
-                "none"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "Electricity",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "energySourced"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Energy sourced",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "transparent": true,
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "watth",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 38
-      },
-      "id": 37,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 6,
-            "x": 0,
-            "y": 39
-          },
-          "id": 41,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_displayName",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "RFdata",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "rssi"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "displayName",
-                  "operator": "=~",
-                  "value": "/^$Sensors$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "RSSI",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "dB",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 6,
-            "x": 6,
-            "y": 39
-          },
-          "id": 42,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_displayName",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "RFdata",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "snr"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "displayName",
-                  "operator": "=~",
-                  "value": "/^$Sensors$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "SNR",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "dB",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 6,
-            "x": 12,
-            "y": 39
-          },
-          "id": 46,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "Ch.$tag_channel",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "channel"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "RFdata",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "rssi"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "displayName",
-                  "operator": "=~",
-                  "value": "/^$Sensors$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "RSSI by channel",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "dB",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 6,
-            "x": 18,
-            "y": 39
-          },
-          "id": 47,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_channel",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "channel"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "RFdata",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "snr"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "displayName",
-                  "operator": "=~",
-                  "value": "/^$Sensors$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "SNR by channel",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "dB",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 6,
-            "x": 0,
-            "y": 47
-          },
-          "id": 44,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_displayName",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "RFdata",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "spreadingFactor"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "displayName",
-                  "operator": "=~",
-                  "value": "/^$Sensors$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Spreading Factor",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "decimals": null,
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": "12",
-              "min": "7",
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 6,
-            "x": 6,
-            "y": 47
-          },
-          "id": 45,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_displayName",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "RFdata",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "bandwidth"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  },
-                  {
-                    "params": [
-                      "*1000"
-                    ],
-                    "type": "math"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "displayName",
-                  "operator": "=~",
-                  "value": "/^$Sensors$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Bandwidth",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "hertz",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 6,
-            "x": 12,
-            "y": 47
-          },
-          "id": 39,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_displayName",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "EnvironmentalData",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "Vbat"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "displayName",
-                  "operator": "=~",
-                  "value": "/^$Sensors$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Battery",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "volt",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "fill": 1,
-          "gridPos": {
-            "h": 7,
-            "w": 6,
-            "x": 18,
-            "y": 47
-          },
-          "id": 43,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": false,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 0.5,
-          "points": true,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "$tag_displayName",
-              "groupBy": [
-                {
-                  "params": [
-                    "$__interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "displayName"
-                  ],
-                  "type": "tag"
-                },
-                {
-                  "params": [
-                    "none"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "RFdata",
-              "orderByTime": "ASC",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "counter"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "displayName",
-                  "operator": "=~",
-                  "value": "/^$Sensors$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Uplink count",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "transparent": true,
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
-      "title": "Device Performance",
-      "type": "row"
-    }
-  ],
-  "refresh": "1m",
-  "schemaVersion": 18,
-  "style": "dark",
-  "tags": [],
-  "templating": {
-    "list": [
-      {
-        "allValue": null,
-        "current": {
-          "tags": [],
-          "text": "All",
-          "value": [
-            "$__all"
-          ]
-        },
-        "datasource": "InfluxDB",
-        "definition": "show tag values with key = displayName",
-        "hide": 0,
-        "includeAll": true,
-        "label": null,
-        "multi": true,
-        "name": "Sensors",
-        "options": [
-          {
-            "selected": true,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": false,
-            "text": "Unit 1: Grid (742890)",
-            "value": "Unit 1: Grid (742890)"
-          },
-          {
-            "selected": false,
-            "text": "Unit 1: Indoor downstairs (02-6b)",
-            "value": "Unit 1: Indoor downstairs (02-6b)"
-          },
-          {
-            "selected": false,
-            "text": "Unit 1: Indoor upstairs (02-80)",
-            "value": "Unit 1: Indoor upstairs (02-80)"
-          },
-          {
-            "selected": false,
-            "text": "Unit 1: Solar (742906)",
-            "value": "Unit 1: Solar (742906)"
-          },
-          {
-            "selected": false,
-            "text": "Unit 2: Grid (742905)",
-            "value": "Unit 2: Grid (742905)"
-          },
-          {
-            "selected": false,
-            "text": "Unit 2: Indoor downstairs (02-89)",
-            "value": "Unit 2: Indoor downstairs (02-89)"
-          },
-          {
-            "selected": false,
-            "text": "Unit 2: Indoor upstairs (02-90)",
-            "value": "Unit 2: Indoor upstairs (02-90)"
-          },
-          {
-            "selected": false,
-            "text": "Unit 2: Outdoors",
-            "value": "Unit 2: Outdoors"
-          },
-          {
-            "selected": false,
-            "text": "Unit 2: Solar (742909)",
-            "value": "Unit 2: Solar (742909)"
-          },
-          {
-            "selected": false,
-            "text": "Unit 3: Grid (742901)",
-            "value": "Unit 3: Grid (742901)"
-          },
-          {
-            "selected": false,
-            "text": "Unit 3: Indoor downstairs (02-8e)",
-            "value": "Unit 3: Indoor downstairs (02-8e)"
-          },
-          {
-            "selected": false,
-            "text": "Unit 3: Outdoors",
-            "value": "Unit 3: Outdoors"
-          }
-        ],
-        "query": "show tag values with key = displayName",
-        "refresh": 0,
-        "regex": "/Unit/",
-        "skipUrlSync": false,
-        "sort": 1,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      }
-    ]
-  },
-  "time": {
-    "from": "now-2d",
-    "to": "now"
-  },
-  "timepicker": {
-    "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ],
-    "time_options": [
-      "5m",
-      "15m",
-      "1h",
-      "6h",
-      "12h",
-      "24h",
-      "2d",
-      "7d",
-      "30d"
-    ]
-  },
-  "timezone": "",
-  "title": "Ecovillage Passive Houses",
-  "uid": "yjJVfukZk",
-  "version": 29
+	"annotations": {
+		"list": [
+			{
+				"builtIn": 1,
+				"datasource": "-- Grafana --",
+				"enable": true,
+				"hide": true,
+				"iconColor": "rgba(0, 211, 255, 1)",
+				"name": "Annotations & Alerts",
+				"type": "dashboard"
+			}
+		]
+	},
+	"editable": true,
+	"gnetId": null,
+	"graphTooltip": 0,
+	"id": 1,
+	"iteration": 1561584016299,
+	"links": [],
+	"panels": [
+		{
+			"collapsed": false,
+			"gridPos": {
+				"h": 1,
+				"w": 24,
+				"x": 0,
+				"y": 0
+			},
+			"id": 31,
+			"panels": [],
+			"title": "Temperatures",
+			"type": "row"
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"fill": 0,
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 0,
+				"y": 1
+			},
+			"id": 18,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "EnvironmentalData",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"t"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							},
+							{
+								"params": [
+									"* 1.8 + 32"
+								],
+								"type": "math"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "displayKey",
+							"operator": "=~",
+							"value": "/indoor/"
+						},
+						{
+							"condition": "AND",
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/^$Sensors$/"
+						}
+					]
+				},
+				{
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"null"
+							],
+							"type": "fill"
+						}
+					],
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "B",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"value"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": []
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Indoor temperatures",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "farenheit",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"fill": 1,
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 12,
+				"y": 1
+			},
+			"id": 20,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "EnvironmentalData",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"t"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							},
+							{
+								"params": [
+									"* 1.8 + 32"
+								],
+								"type": "math"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "devID",
+							"operator": "=~",
+							"value": "/outdoor/"
+						}
+					]
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Outdoor Temperatures",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "farenheit",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"collapsed": false,
+			"gridPos": {
+				"h": 1,
+				"w": 24,
+				"x": 0,
+				"y": 9
+			},
+			"id": 29,
+			"panels": [],
+			"title": "Dewpoint",
+			"type": "row"
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"fill": 0,
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 0,
+				"y": 10
+			},
+			"id": 34,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "EnvironmentalData",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"tDew"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							},
+							{
+								"params": [
+									"* 1.8 + 32"
+								],
+								"type": "math"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "displayKey",
+							"operator": "=~",
+							"value": "/indoor/"
+						},
+						{
+							"condition": "AND",
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/^$Sensors$/"
+						}
+					]
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Indoor dewpoint",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "farenheit",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"fill": 1,
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 12,
+				"y": 10
+			},
+			"id": 35,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "EnvironmentalData",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"tDew"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							},
+							{
+								"params": [
+									"* 1.8 + 32"
+								],
+								"type": "math"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "devID",
+							"operator": "=~",
+							"value": "/outdoor/"
+						}
+					]
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [],
+			"timeShift": null,
+			"title": "Outdoor Dewpoint",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "farenheit",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"collapsed": false,
+			"gridPos": {
+				"h": 1,
+				"w": 24,
+				"x": 0,
+				"y": 18
+			},
+			"id": 33,
+			"panels": [],
+			"title": "Humidity",
+			"type": "row"
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"fill": 0,
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 0,
+				"y": 19
+			},
+			"id": 22,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "EnvironmentalData",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"rh"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "devID",
+							"operator": "=~",
+							"value": "/indoor/"
+						},
+						{
+							"condition": "AND",
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/^$Sensors$/"
+						}
+					]
+				}
+			],
+			"thresholds": [
+				{
+					"colorMode": "custom",
+					"fill": false,
+					"fillColor": "rgba(50, 116, 217, 0.2)",
+					"line": true,
+					"lineColor": "rgba(31, 96, 196, 0.6)",
+					"op": "gt",
+					"value": 60,
+					"yaxis": "left"
+				},
+				{
+					"colorMode": "custom",
+					"fill": false,
+					"fillColor": "rgba(50, 116, 217, 0.2)",
+					"line": true,
+					"lineColor": "rgba(31, 96, 196, 0.6)",
+					"op": "lt",
+					"value": 40,
+					"yaxis": "left"
+				}
+			],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Indoor Humidity",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "humidity",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"fill": 0,
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 12,
+				"y": 19
+			},
+			"id": 24,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "EnvironmentalData",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"rh"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "devID",
+							"operator": "=~",
+							"value": "/outdoor/"
+						}
+					]
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Outdoor Humidity",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "humidity",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"collapsed": false,
+			"gridPos": {
+				"h": 1,
+				"w": 24,
+				"x": 0,
+				"y": 27
+			},
+			"id": 16,
+			"panels": [],
+			"title": "Light",
+			"type": "row"
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"fill": 0,
+			"gridPos": {
+				"h": 9,
+				"w": 12,
+				"x": 0,
+				"y": 28
+			},
+			"id": 26,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "EnvironmentalData",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"irradiance.IR"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "devID",
+							"operator": "=~",
+							"value": "/indoor/"
+						},
+						{
+							"condition": "AND",
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/^$Sensors$/"
+						}
+					]
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Indoor light",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "Wm2",
+					"label": null,
+					"logBase": 10,
+					"max": null,
+					"min": "1",
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"fill": 0,
+			"gridPos": {
+				"h": 9,
+				"w": 12,
+				"x": 12,
+				"y": 28
+			},
+			"id": 27,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "EnvironmentalData",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"irradiance.IR"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "devID",
+							"operator": "=~",
+							"value": "/outdoor/"
+						}
+					]
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Outdoor light",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "Wm2",
+					"label": null,
+					"logBase": 10,
+					"max": null,
+					"min": "1",
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"collapsed": false,
+			"gridPos": {
+				"h": 1,
+				"w": 24,
+				"x": 0,
+				"y": 37
+			},
+			"id": 2,
+			"panels": [],
+			"title": "Electricity",
+			"type": "row"
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"description": "",
+			"fill": 1,
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 0,
+				"y": 38
+			},
+			"id": 12,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "Electricity",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"mainDemand"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							},
+							{
+								"params": [
+									"* -1"
+								],
+								"type": "math"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/[13]: Grid/"
+						}
+					]
+				},
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "Electricity",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "B",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"mainDemand"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/2: Grid/"
+						}
+					]
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Grid Consumption (production)",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "watt",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"fill": 1,
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 12,
+				"y": 38
+			},
+			"id": 14,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "Electricity",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"mainDemand"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/Solar/"
+						}
+					]
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Solar Production",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "watt",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"collapsed": false,
+			"gridPos": {
+				"h": 1,
+				"w": 24,
+				"x": 0,
+				"y": 46
+			},
+			"id": 10,
+			"panels": [],
+			"title": "Raw Energy Totals",
+			"type": "row"
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "InfluxDB",
+			"description": "",
+			"fill": 1,
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 0,
+				"y": 47
+			},
+			"id": 6,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"devID"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "Electricity",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"energySourced"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/[13]: Grid/"
+						}
+					]
+				},
+				{
+					"alias": "$tag_displayName",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"displayName"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "Electricity",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "B",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"energyUsed"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/2: Grid/"
+						}
+					]
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Energy Used",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "watth",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"aliasColors": {},
+			"bars": false,
+			"dashLength": 10,
+			"dashes": false,
+			"datasource": "InfluxDB",
+			"fill": 1,
+			"gridPos": {
+				"h": 8,
+				"w": 12,
+				"x": 12,
+				"y": 47
+			},
+			"id": 8,
+			"legend": {
+				"avg": false,
+				"current": false,
+				"max": false,
+				"min": false,
+				"show": true,
+				"total": false,
+				"values": false
+			},
+			"lines": true,
+			"linewidth": 1,
+			"links": [],
+			"nullPointMode": "null",
+			"options": {},
+			"percentage": false,
+			"pointradius": 2,
+			"points": false,
+			"renderer": "flot",
+			"seriesOverrides": [],
+			"spaceLength": 10,
+			"stack": false,
+			"steppedLine": false,
+			"targets": [
+				{
+					"alias": "$tag_devID",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"devID"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "Electricity",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "A",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"energyUsed"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/1: Grid/"
+						}
+					]
+				},
+				{
+					"alias": "$tag_devID",
+					"groupBy": [
+						{
+							"params": [
+								"$__interval"
+							],
+							"type": "time"
+						},
+						{
+							"params": [
+								"devID"
+							],
+							"type": "tag"
+						},
+						{
+							"params": [
+								"none"
+							],
+							"type": "fill"
+						}
+					],
+					"measurement": "Electricity",
+					"orderByTime": "ASC",
+					"policy": "default",
+					"refId": "B",
+					"resultFormat": "time_series",
+					"select": [
+						[
+							{
+								"params": [
+									"energySourced"
+								],
+								"type": "field"
+							},
+							{
+								"params": [],
+								"type": "mean"
+							}
+						]
+					],
+					"tags": [
+						{
+							"key": "displayName",
+							"operator": "=~",
+							"value": "/2: Grid/"
+						}
+					]
+				}
+			],
+			"thresholds": [],
+			"timeFrom": null,
+			"timeRegions": [
+				{
+					"colorMode": "gray",
+					"fill": true,
+					"fillColor": "rgba(234, 112, 112, 0.12)",
+					"from": "05:00",
+					"fromDayOfWeek": 6,
+					"line": false,
+					"lineColor": "rgba(237, 46, 24, 0.60)",
+					"op": "time",
+					"to": "05:00",
+					"toDayOfWeek": 1
+				}
+			],
+			"timeShift": null,
+			"title": "Energy sourced",
+			"tooltip": {
+				"shared": true,
+				"sort": 0,
+				"value_type": "individual"
+			},
+			"transparent": true,
+			"type": "graph",
+			"xaxis": {
+				"buckets": null,
+				"mode": "time",
+				"name": null,
+				"show": true,
+				"values": []
+			},
+			"yaxes": [
+				{
+					"format": "watth",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				},
+				{
+					"format": "short",
+					"label": null,
+					"logBase": 1,
+					"max": null,
+					"min": null,
+					"show": true
+				}
+			],
+			"yaxis": {
+				"align": false,
+				"alignLevel": null
+			}
+		},
+		{
+			"collapsed": true,
+			"gridPos": {
+				"h": 1,
+				"w": 24,
+				"x": 0,
+				"y": 55
+			},
+			"id": 37,
+			"panels": [
+				{
+					"aliasColors": {},
+					"bars": false,
+					"dashLength": 10,
+					"dashes": false,
+					"fill": 0,
+					"gridPos": {
+						"h": 8,
+						"w": 6,
+						"x": 0,
+						"y": 39
+					},
+					"id": 41,
+					"legend": {
+						"avg": false,
+						"current": false,
+						"max": false,
+						"min": false,
+						"show": true,
+						"total": false,
+						"values": false
+					},
+					"lines": true,
+					"linewidth": 1,
+					"links": [],
+					"nullPointMode": "null",
+					"percentage": false,
+					"pointradius": 2,
+					"points": false,
+					"renderer": "flot",
+					"seriesOverrides": [],
+					"spaceLength": 10,
+					"stack": false,
+					"steppedLine": false,
+					"targets": [
+						{
+							"alias": "$tag_displayName",
+							"groupBy": [
+								{
+									"params": [
+										"$__interval"
+									],
+									"type": "time"
+								},
+								{
+									"params": [
+										"displayName"
+									],
+									"type": "tag"
+								},
+								{
+									"params": [
+										"none"
+									],
+									"type": "fill"
+								}
+							],
+							"measurement": "RFdata",
+							"orderByTime": "ASC",
+							"policy": "default",
+							"refId": "A",
+							"resultFormat": "time_series",
+							"select": [
+								[
+									{
+										"params": [
+											"rssi"
+										],
+										"type": "field"
+									},
+									{
+										"params": [],
+										"type": "mean"
+									}
+								]
+							],
+							"tags": [
+								{
+									"key": "displayName",
+									"operator": "=~",
+									"value": "/^$Sensors$/"
+								}
+							]
+						}
+					],
+					"thresholds": [],
+					"timeFrom": null,
+					"timeRegions": [],
+					"timeShift": null,
+					"title": "RSSI",
+					"tooltip": {
+						"shared": true,
+						"sort": 0,
+						"value_type": "individual"
+					},
+					"type": "graph",
+					"xaxis": {
+						"buckets": null,
+						"mode": "time",
+						"name": null,
+						"show": true,
+						"values": []
+					},
+					"yaxes": [
+						{
+							"format": "dB",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						},
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						}
+					],
+					"yaxis": {
+						"align": false,
+						"alignLevel": null
+					}
+				},
+				{
+					"aliasColors": {},
+					"bars": false,
+					"dashLength": 10,
+					"dashes": false,
+					"fill": 0,
+					"gridPos": {
+						"h": 8,
+						"w": 6,
+						"x": 6,
+						"y": 39
+					},
+					"id": 42,
+					"legend": {
+						"avg": false,
+						"current": false,
+						"max": false,
+						"min": false,
+						"show": true,
+						"total": false,
+						"values": false
+					},
+					"lines": true,
+					"linewidth": 1,
+					"links": [],
+					"nullPointMode": "null",
+					"percentage": false,
+					"pointradius": 2,
+					"points": false,
+					"renderer": "flot",
+					"seriesOverrides": [],
+					"spaceLength": 10,
+					"stack": false,
+					"steppedLine": false,
+					"targets": [
+						{
+							"alias": "$tag_displayName",
+							"groupBy": [
+								{
+									"params": [
+										"$__interval"
+									],
+									"type": "time"
+								},
+								{
+									"params": [
+										"displayName"
+									],
+									"type": "tag"
+								},
+								{
+									"params": [
+										"none"
+									],
+									"type": "fill"
+								}
+							],
+							"measurement": "RFdata",
+							"orderByTime": "ASC",
+							"policy": "default",
+							"refId": "A",
+							"resultFormat": "time_series",
+							"select": [
+								[
+									{
+										"params": [
+											"snr"
+										],
+										"type": "field"
+									},
+									{
+										"params": [],
+										"type": "mean"
+									}
+								]
+							],
+							"tags": [
+								{
+									"key": "displayName",
+									"operator": "=~",
+									"value": "/^$Sensors$/"
+								}
+							]
+						}
+					],
+					"thresholds": [],
+					"timeFrom": null,
+					"timeRegions": [],
+					"timeShift": null,
+					"title": "SNR",
+					"tooltip": {
+						"shared": true,
+						"sort": 0,
+						"value_type": "individual"
+					},
+					"transparent": true,
+					"type": "graph",
+					"xaxis": {
+						"buckets": null,
+						"mode": "time",
+						"name": null,
+						"show": true,
+						"values": []
+					},
+					"yaxes": [
+						{
+							"format": "dB",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						},
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						}
+					],
+					"yaxis": {
+						"align": false,
+						"alignLevel": null
+					}
+				},
+				{
+					"aliasColors": {},
+					"bars": false,
+					"dashLength": 10,
+					"dashes": false,
+					"fill": 0,
+					"gridPos": {
+						"h": 8,
+						"w": 6,
+						"x": 12,
+						"y": 39
+					},
+					"id": 46,
+					"legend": {
+						"avg": false,
+						"current": false,
+						"max": false,
+						"min": false,
+						"show": true,
+						"total": false,
+						"values": false
+					},
+					"lines": true,
+					"linewidth": 1,
+					"links": [],
+					"nullPointMode": "null",
+					"percentage": false,
+					"pointradius": 2,
+					"points": false,
+					"renderer": "flot",
+					"seriesOverrides": [],
+					"spaceLength": 10,
+					"stack": false,
+					"steppedLine": false,
+					"targets": [
+						{
+							"alias": "Ch.$tag_channel",
+							"groupBy": [
+								{
+									"params": [
+										"$__interval"
+									],
+									"type": "time"
+								},
+								{
+									"params": [
+										"channel"
+									],
+									"type": "tag"
+								},
+								{
+									"params": [
+										"none"
+									],
+									"type": "fill"
+								}
+							],
+							"measurement": "RFdata",
+							"orderByTime": "ASC",
+							"policy": "default",
+							"refId": "A",
+							"resultFormat": "time_series",
+							"select": [
+								[
+									{
+										"params": [
+											"rssi"
+										],
+										"type": "field"
+									},
+									{
+										"params": [],
+										"type": "mean"
+									}
+								]
+							],
+							"tags": [
+								{
+									"key": "displayName",
+									"operator": "=~",
+									"value": "/^$Sensors$/"
+								}
+							]
+						}
+					],
+					"thresholds": [],
+					"timeFrom": null,
+					"timeRegions": [],
+					"timeShift": null,
+					"title": "RSSI by channel",
+					"tooltip": {
+						"shared": true,
+						"sort": 0,
+						"value_type": "individual"
+					},
+					"transparent": true,
+					"type": "graph",
+					"xaxis": {
+						"buckets": null,
+						"mode": "time",
+						"name": null,
+						"show": true,
+						"values": []
+					},
+					"yaxes": [
+						{
+							"format": "dB",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						},
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						}
+					],
+					"yaxis": {
+						"align": false,
+						"alignLevel": null
+					}
+				},
+				{
+					"aliasColors": {},
+					"bars": false,
+					"dashLength": 10,
+					"dashes": false,
+					"fill": 0,
+					"gridPos": {
+						"h": 8,
+						"w": 6,
+						"x": 18,
+						"y": 39
+					},
+					"id": 47,
+					"legend": {
+						"avg": false,
+						"current": false,
+						"max": false,
+						"min": false,
+						"show": true,
+						"total": false,
+						"values": false
+					},
+					"lines": true,
+					"linewidth": 1,
+					"links": [],
+					"nullPointMode": "null",
+					"percentage": false,
+					"pointradius": 2,
+					"points": false,
+					"renderer": "flot",
+					"seriesOverrides": [],
+					"spaceLength": 10,
+					"stack": false,
+					"steppedLine": false,
+					"targets": [
+						{
+							"alias": "$tag_channel",
+							"groupBy": [
+								{
+									"params": [
+										"$__interval"
+									],
+									"type": "time"
+								},
+								{
+									"params": [
+										"channel"
+									],
+									"type": "tag"
+								},
+								{
+									"params": [
+										"none"
+									],
+									"type": "fill"
+								}
+							],
+							"measurement": "RFdata",
+							"orderByTime": "ASC",
+							"policy": "default",
+							"refId": "A",
+							"resultFormat": "time_series",
+							"select": [
+								[
+									{
+										"params": [
+											"snr"
+										],
+										"type": "field"
+									},
+									{
+										"params": [],
+										"type": "mean"
+									}
+								]
+							],
+							"tags": [
+								{
+									"key": "displayName",
+									"operator": "=~",
+									"value": "/^$Sensors$/"
+								}
+							]
+						}
+					],
+					"thresholds": [],
+					"timeFrom": null,
+					"timeRegions": [],
+					"timeShift": null,
+					"title": "SNR by channel",
+					"tooltip": {
+						"shared": true,
+						"sort": 0,
+						"value_type": "individual"
+					},
+					"transparent": true,
+					"type": "graph",
+					"xaxis": {
+						"buckets": null,
+						"mode": "time",
+						"name": null,
+						"show": true,
+						"values": []
+					},
+					"yaxes": [
+						{
+							"format": "dB",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						},
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						}
+					],
+					"yaxis": {
+						"align": false,
+						"alignLevel": null
+					}
+				},
+				{
+					"aliasColors": {},
+					"bars": false,
+					"dashLength": 10,
+					"dashes": false,
+					"fill": 0,
+					"gridPos": {
+						"h": 8,
+						"w": 6,
+						"x": 0,
+						"y": 47
+					},
+					"id": 44,
+					"legend": {
+						"avg": false,
+						"current": false,
+						"max": false,
+						"min": false,
+						"show": true,
+						"total": false,
+						"values": false
+					},
+					"lines": true,
+					"linewidth": 1,
+					"links": [],
+					"nullPointMode": "null",
+					"percentage": false,
+					"pointradius": 2,
+					"points": false,
+					"renderer": "flot",
+					"seriesOverrides": [],
+					"spaceLength": 10,
+					"stack": false,
+					"steppedLine": false,
+					"targets": [
+						{
+							"alias": "$tag_displayName",
+							"groupBy": [
+								{
+									"params": [
+										"$__interval"
+									],
+									"type": "time"
+								},
+								{
+									"params": [
+										"displayName"
+									],
+									"type": "tag"
+								},
+								{
+									"params": [
+										"none"
+									],
+									"type": "fill"
+								}
+							],
+							"measurement": "RFdata",
+							"orderByTime": "ASC",
+							"policy": "default",
+							"refId": "A",
+							"resultFormat": "time_series",
+							"select": [
+								[
+									{
+										"params": [
+											"spreadingFactor"
+										],
+										"type": "field"
+									},
+									{
+										"params": [],
+										"type": "mean"
+									}
+								]
+							],
+							"tags": [
+								{
+									"key": "displayName",
+									"operator": "=~",
+									"value": "/^$Sensors$/"
+								}
+							]
+						}
+					],
+					"thresholds": [],
+					"timeFrom": null,
+					"timeRegions": [],
+					"timeShift": null,
+					"title": "Spreading Factor",
+					"tooltip": {
+						"shared": true,
+						"sort": 0,
+						"value_type": "individual"
+					},
+					"transparent": true,
+					"type": "graph",
+					"xaxis": {
+						"buckets": null,
+						"mode": "time",
+						"name": null,
+						"show": true,
+						"values": []
+					},
+					"yaxes": [
+						{
+							"decimals": null,
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": "12",
+							"min": "7",
+							"show": true
+						},
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						}
+					],
+					"yaxis": {
+						"align": false,
+						"alignLevel": null
+					}
+				},
+				{
+					"aliasColors": {},
+					"bars": false,
+					"dashLength": 10,
+					"dashes": false,
+					"fill": 0,
+					"gridPos": {
+						"h": 8,
+						"w": 6,
+						"x": 6,
+						"y": 47
+					},
+					"id": 45,
+					"legend": {
+						"avg": false,
+						"current": false,
+						"max": false,
+						"min": false,
+						"show": true,
+						"total": false,
+						"values": false
+					},
+					"lines": true,
+					"linewidth": 1,
+					"links": [],
+					"nullPointMode": "null",
+					"percentage": false,
+					"pointradius": 2,
+					"points": false,
+					"renderer": "flot",
+					"seriesOverrides": [],
+					"spaceLength": 10,
+					"stack": false,
+					"steppedLine": false,
+					"targets": [
+						{
+							"alias": "$tag_displayName",
+							"groupBy": [
+								{
+									"params": [
+										"$__interval"
+									],
+									"type": "time"
+								},
+								{
+									"params": [
+										"displayName"
+									],
+									"type": "tag"
+								},
+								{
+									"params": [
+										"none"
+									],
+									"type": "fill"
+								}
+							],
+							"measurement": "RFdata",
+							"orderByTime": "ASC",
+							"policy": "default",
+							"refId": "A",
+							"resultFormat": "time_series",
+							"select": [
+								[
+									{
+										"params": [
+											"bandwidth"
+										],
+										"type": "field"
+									},
+									{
+										"params": [],
+										"type": "mean"
+									},
+									{
+										"params": [
+											"*1000"
+										],
+										"type": "math"
+									}
+								]
+							],
+							"tags": [
+								{
+									"key": "displayName",
+									"operator": "=~",
+									"value": "/^$Sensors$/"
+								}
+							]
+						}
+					],
+					"thresholds": [],
+					"timeFrom": null,
+					"timeRegions": [],
+					"timeShift": null,
+					"title": "Bandwidth",
+					"tooltip": {
+						"shared": true,
+						"sort": 0,
+						"value_type": "individual"
+					},
+					"transparent": true,
+					"type": "graph",
+					"xaxis": {
+						"buckets": null,
+						"mode": "time",
+						"name": null,
+						"show": true,
+						"values": []
+					},
+					"yaxes": [
+						{
+							"format": "hertz",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						},
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						}
+					],
+					"yaxis": {
+						"align": false,
+						"alignLevel": null
+					}
+				},
+				{
+					"aliasColors": {},
+					"bars": false,
+					"dashLength": 10,
+					"dashes": false,
+					"fill": 0,
+					"gridPos": {
+						"h": 7,
+						"w": 6,
+						"x": 12,
+						"y": 47
+					},
+					"id": 39,
+					"legend": {
+						"avg": false,
+						"current": false,
+						"max": false,
+						"min": false,
+						"show": true,
+						"total": false,
+						"values": false
+					},
+					"lines": true,
+					"linewidth": 1,
+					"links": [],
+					"nullPointMode": "null",
+					"percentage": false,
+					"pointradius": 2,
+					"points": false,
+					"renderer": "flot",
+					"seriesOverrides": [],
+					"spaceLength": 10,
+					"stack": false,
+					"steppedLine": false,
+					"targets": [
+						{
+							"alias": "$tag_displayName",
+							"groupBy": [
+								{
+									"params": [
+										"$__interval"
+									],
+									"type": "time"
+								},
+								{
+									"params": [
+										"displayName"
+									],
+									"type": "tag"
+								},
+								{
+									"params": [
+										"none"
+									],
+									"type": "fill"
+								}
+							],
+							"measurement": "EnvironmentalData",
+							"orderByTime": "ASC",
+							"policy": "default",
+							"refId": "A",
+							"resultFormat": "time_series",
+							"select": [
+								[
+									{
+										"params": [
+											"Vbat"
+										],
+										"type": "field"
+									},
+									{
+										"params": [],
+										"type": "mean"
+									}
+								]
+							],
+							"tags": [
+								{
+									"key": "displayName",
+									"operator": "=~",
+									"value": "/^$Sensors$/"
+								}
+							]
+						}
+					],
+					"thresholds": [],
+					"timeFrom": null,
+					"timeRegions": [],
+					"timeShift": null,
+					"title": "Battery",
+					"tooltip": {
+						"shared": true,
+						"sort": 0,
+						"value_type": "individual"
+					},
+					"transparent": true,
+					"type": "graph",
+					"xaxis": {
+						"buckets": null,
+						"mode": "time",
+						"name": null,
+						"show": true,
+						"values": []
+					},
+					"yaxes": [
+						{
+							"format": "volt",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						},
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						}
+					],
+					"yaxis": {
+						"align": false,
+						"alignLevel": null
+					}
+				},
+				{
+					"aliasColors": {},
+					"bars": false,
+					"dashLength": 10,
+					"dashes": false,
+					"fill": 1,
+					"gridPos": {
+						"h": 7,
+						"w": 6,
+						"x": 18,
+						"y": 47
+					},
+					"id": 43,
+					"legend": {
+						"avg": false,
+						"current": false,
+						"max": false,
+						"min": false,
+						"show": true,
+						"total": false,
+						"values": false
+					},
+					"lines": false,
+					"linewidth": 1,
+					"links": [],
+					"nullPointMode": "null",
+					"percentage": false,
+					"pointradius": 0.5,
+					"points": true,
+					"renderer": "flot",
+					"seriesOverrides": [],
+					"spaceLength": 10,
+					"stack": false,
+					"steppedLine": false,
+					"targets": [
+						{
+							"alias": "$tag_displayName",
+							"groupBy": [
+								{
+									"params": [
+										"$__interval"
+									],
+									"type": "time"
+								},
+								{
+									"params": [
+										"displayName"
+									],
+									"type": "tag"
+								},
+								{
+									"params": [
+										"none"
+									],
+									"type": "fill"
+								}
+							],
+							"measurement": "RFdata",
+							"orderByTime": "ASC",
+							"policy": "default",
+							"refId": "A",
+							"resultFormat": "time_series",
+							"select": [
+								[
+									{
+										"params": [
+											"counter"
+										],
+										"type": "field"
+									},
+									{
+										"params": [],
+										"type": "mean"
+									}
+								]
+							],
+							"tags": [
+								{
+									"key": "displayName",
+									"operator": "=~",
+									"value": "/^$Sensors$/"
+								}
+							]
+						}
+					],
+					"thresholds": [],
+					"timeFrom": null,
+					"timeRegions": [],
+					"timeShift": null,
+					"title": "Uplink count",
+					"tooltip": {
+						"shared": true,
+						"sort": 0,
+						"value_type": "individual"
+					},
+					"transparent": true,
+					"type": "graph",
+					"xaxis": {
+						"buckets": null,
+						"mode": "time",
+						"name": null,
+						"show": true,
+						"values": []
+					},
+					"yaxes": [
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						},
+						{
+							"format": "short",
+							"label": null,
+							"logBase": 1,
+							"max": null,
+							"min": null,
+							"show": true
+						}
+					],
+					"yaxis": {
+						"align": false,
+						"alignLevel": null
+					}
+				}
+			],
+			"title": "Device Performance",
+			"type": "row"
+		}
+	],
+	"refresh": "1m",
+	"schemaVersion": 18,
+	"style": "dark",
+	"tags": [],
+	"templating": {
+		"list": [
+			{
+				"allValue": null,
+				"current": {
+					"tags": [],
+					"text": "All",
+					"value": [
+						"$__all"
+					]
+				},
+				"datasource": "InfluxDB",
+				"definition": "show tag values with key = displayName",
+				"hide": 0,
+				"includeAll": true,
+				"label": null,
+				"multi": true,
+				"name": "Sensors",
+				"options": [
+					{
+						"selected": true,
+						"text": "All",
+						"value": "$__all"
+					},
+					{
+						"selected": false,
+						"text": "Unit 1: Grid (742890)",
+						"value": "Unit 1: Grid (742890)"
+					},
+					{
+						"selected": false,
+						"text": "Unit 1: Indoor downstairs (02-6b)",
+						"value": "Unit 1: Indoor downstairs (02-6b)"
+					},
+					{
+						"selected": false,
+						"text": "Unit 1: Indoor upstairs (02-80)",
+						"value": "Unit 1: Indoor upstairs (02-80)"
+					},
+					{
+						"selected": false,
+						"text": "Unit 1: Solar (742906)",
+						"value": "Unit 1: Solar (742906)"
+					},
+					{
+						"selected": false,
+						"text": "Unit 2: Grid (742905)",
+						"value": "Unit 2: Grid (742905)"
+					},
+					{
+						"selected": false,
+						"text": "Unit 2: Indoor downstairs (02-89)",
+						"value": "Unit 2: Indoor downstairs (02-89)"
+					},
+					{
+						"selected": false,
+						"text": "Unit 2: Indoor upstairs (02-90)",
+						"value": "Unit 2: Indoor upstairs (02-90)"
+					},
+					{
+						"selected": false,
+						"text": "Unit 2: Outdoors",
+						"value": "Unit 2: Outdoors"
+					},
+					{
+						"selected": false,
+						"text": "Unit 2: Solar (742909)",
+						"value": "Unit 2: Solar (742909)"
+					},
+					{
+						"selected": false,
+						"text": "Unit 3: Grid (742901)",
+						"value": "Unit 3: Grid (742901)"
+					},
+					{
+						"selected": false,
+						"text": "Unit 3: Indoor downstairs (02-8e)",
+						"value": "Unit 3: Indoor downstairs (02-8e)"
+					},
+					{
+						"selected": false,
+						"text": "Unit 3: Outdoors",
+						"value": "Unit 3: Outdoors"
+					}
+				],
+				"query": "show tag values with key = displayName",
+				"refresh": 0,
+				"regex": "/Unit/",
+				"skipUrlSync": false,
+				"sort": 1,
+				"tagValuesQuery": "",
+				"tags": [],
+				"tagsQuery": "",
+				"type": "query",
+				"useTags": false
+			}
+		]
+	},
+	"time": {
+		"from": "now-30d",
+		"to": "now"
+	},
+	"timepicker": {
+		"refresh_intervals": [
+			"5s",
+			"10s",
+			"30s",
+			"1m",
+			"5m",
+			"15m",
+			"30m",
+			"1h",
+			"2h",
+			"1d"
+		],
+		"time_options": [
+			"5m",
+			"15m",
+			"1h",
+			"6h",
+			"12h",
+			"24h",
+			"2d",
+			"7d",
+			"30d"
+		]
+	},
+	"timezone": "",
+	"title": "Ecovillage Passive Houses",
+	"uid": "yjJVfukZk",
+	"version": 7
 }
