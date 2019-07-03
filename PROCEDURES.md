@@ -59,13 +59,25 @@ For step 2, you'll first have to select the database, then drop the series.
 > use "passivehouse-ecovillage"
 Using database passivehouse-ecovillage
 > drop series from "EnvironmentalData"  where displayName =~ /1: Outdoor/
-
 >
 ```
 
-Since `influx` has command history, just hit up-arrow and edit the command.
+Since `influx` has command history, just hit up-arrow and edit the commands; or cut and paste from here (bearing in mind that you have to adjust the series name for the data to be dropped).
 
 ## Copying data from a database in line format
+
+### On the source system
+
+```console
+$ docker-compose exec influxdb /bin/bash
+root@5d9dbaba4905:/# influx_inspect export -datadir /var/lib/influxdb/data -out /var/lib/influxdb/export-20190623a.gz -waldir /var/lib/influxdb/wal -database passivehouse-ecovillage -compress
+root@5d9dbaba4905:/# <control-D>
+$ ls -lh /var/opt/docker/passivehouse-ecovillage/influxdb/export-20190623a.gz
+-rw-r--r-- 1 root root 24M Jun 23 23:07 /var/opt/docker/passivehouse-ecovillage/influxdb/export-20190623a.gz
+$
+```
+
+Copy the file to the target system.
 
 ### On the target system
 
