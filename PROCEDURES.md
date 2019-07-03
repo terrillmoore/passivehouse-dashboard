@@ -3,6 +3,8 @@
 
 - [Logging in to influx](#logging-in-to-influx)
 - [Dropping a series](#dropping-a-series)
+- [Copying data from a database in line format](#copying-data-from-a-database-in-line-format)
+	- [On the target system](#on-the-target-system)
 
 <!-- /TOC -->
 
@@ -62,3 +64,22 @@ Using database passivehouse-ecovillage
 ```
 
 Since `influx` has command history, just hit up-arrow and edit the command.
+
+## Copying data from a database in line format
+
+### On the target system
+
+```console
+$ cd /opt/docker/docker-ttn-dashboard
+$ docker-compose exec influxdb /bin/bash
+root@987ec158a95e:/# influx -import -compressed -path=/var/lib/influxdb/export-290623a.gz
+2019/06/24 00:24:29 Processed 100000 lines.  Time elapsed: 21.407490751s.  Points per second (PPS): 56055
+...
+2019/06/24 00:24:44 Processed 2000000 lines.  Time elapsed: 36.155394541s.  Points per second (PPS): 55316
+2019/06/24 00:24:45 Processed 1 commands
+2019/06/24 00:24:45 Processed 2069074 inserts
+2019/06/24 00:24:45 Failed 0 inserts
+root@987ec158a95e:/# exit
+```
+
+Note: you need at least 8G in your VM; otherwise you'll get crashes during the import. Things are not well behaved when memory gets exhausted.
