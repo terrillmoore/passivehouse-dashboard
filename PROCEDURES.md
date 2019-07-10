@@ -4,7 +4,10 @@
 - [Logging in to influx](#logging-in-to-influx)
 - [Dropping a series](#dropping-a-series)
 - [Copying data from a database in line format](#copying-data-from-a-database-in-line-format)
+	- [On the source system](#on-the-source-system)
 	- [On the target system](#on-the-target-system)
+- [Deleting spurious data (a few points from a sensor)](#deleting-spurious-data-a-few-points-from-a-sensor)
+	- [Confirm the data to be dropped](#confirm-the-data-to-be-dropped)
 
 <!-- /TOC -->
 
@@ -95,3 +98,77 @@ root@987ec158a95e:/# exit
 ```
 
 Note: you need at least 8G in your VM; otherwise you'll get crashes during the import. Things are not well behaved when memory gets exhausted.
+
+## Deleting spurious data (a few points from a sensor)
+
+There are a number of ways to do this; the simpler way is less flexible.
+
+In this example, we observe that a sensor failed, and the last few temperature data points before it stopped transmitting are bogus.
+
+We are OK with eliminating all the data from that device at the point of failure.
+
+In this example, the data is in database `soil_water_data`, and the measurement is (confusingly) also called `soil_water_data`.
+
+### Confirm the data to be dropped
+
+We'll start by showing some of the points for the sensor for the time range of interest.
+
+Using grafana, find the time range of interest.
+
+Convert the time to UTC.  In this case, the time on the dashboard was 13:00 to 14:00 EDT, so the time range in UTC was 17:00 to 18:00.
+
+Log into the server, and go to the influx prompt.
+
+```console
+$ cd /opt/docker/docker-ttn-dashboard
+$ docker-compose exec influxdb /bin/bash
+root@987ec158a95e:/# influx
+Connected to http://localhost:8086 version 1.7.6
+InfluxDB shell version: 1.7.6
+Enter an InfluxQL query
+>
+```
+
+Then use a "SELECT" query to view the data.
+
+```sql
+> select "t" from "soil_water_data".."soil_water_data" where ("devID" = 'test-44') and time > '2019-07-06T17:20:00Z'
+name: soil_water_data
+time                t
+----                -
+1562433648857705150 26.01171875
+1562434008839798171 25.72265625
+1562434368825602738 25.0625
+1562434920836159489 -128
+>
+```
+
+We observe that we don't need to drop all of these, so we refine the time:
+
+```sql
+> select "t" from "soil_water_data".."soil_water_data" where ("devID" = 'test-44') and time > '2019-07-06T17:30:00Z'
+name: soil_water_data
+time                t
+----                -
+1562434368825602738 25.0625
+1562434920836159489 -128
+> select "t" from "soil_water_data".."soil_water_data" where ("devID" = 'test-44') and time > '2019-07-06T17:33:00Z'
+name: soil_water_data
+time                t
+----                -
+1562434920836159489 -128
+>
+```
+
+Next, we will use the `DELETE` command to remove the data. We must deal with an inconsistency doing so. The `SELECT` command allows you to select any database from within the query. The `DELETE` command does not. So first we must select a default database using `USE`, and then we can delete the data of interest.
+
+```sql
+> use "soil_water_data"
+Using database soil_water_data
+> delete from "soil_water_data" where ("devID" = 'test-44') AND time > '2019-07-06T17:33:00Z'
+>
+```
+
+After this, refresh the window in Grafana, and the data should be gone.
+
+_**Remember:**_ there is no undo. It is best to practice with a staging database if you have one.
